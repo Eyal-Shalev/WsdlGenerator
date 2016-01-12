@@ -1,5 +1,5 @@
 {
-  "name": "eyal-shalev/WsdlGenerator",
+  "name": "eyal-shalev/wsdl-generator",
   "type": "project",
   "description": "A symfony console command that generates class files for a given WSDL",
   "keywords": ["Console", "Development", "Symfony", "WSDL"],
