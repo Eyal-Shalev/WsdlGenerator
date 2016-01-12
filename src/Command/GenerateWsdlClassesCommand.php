@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\wsdl2phpgenerator_command\Command\GenerateWsdlCommand.
+ * Contains \EyalShalev\WsdlGenerator\Command\GenerateWsdlClassesCommand.
  */
 
-namespace Drupal\wsdl2phpgenerator_command\Command;
+namespace EyalShalev\WsdlGenerator\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,9 +20,9 @@ use Wsdl2PhpGenerator\Generator as WsdlGenerator;
 /**
  * Class GenerateWsdlCommand.
  *
- * @package Drupal\wsdl2phpgenerator_command
+ * @package EyalShalev\WsdlGenerator\Command
  */
-class GenerateWsdlCommand extends Command {
+class GenerateWsdlClassesCommand extends Command {
   /**
    * {@inheritdoc}
    */

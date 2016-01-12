@@ -1,8 +1,8 @@
 {
-  "name": "eyal-shalev/wsdl2phpgenerator_command",
+  "name": "eyal-shalev/WsdlGenerator",
   "type": "project",
-  "description": "A drupal-console command that generates class files for a given WSDL",
-  "keywords": ["Drupal", "Console", "Development", "Symfony", "WSDL"],
+  "description": "A symfony console command that generates class files for a given WSDL",
+  "keywords": ["Console", "Development", "Symfony", "WSDL"],
   "license": "GPL-2.0+",
   "authors": [
     {
@@ -18,10 +18,10 @@
     "source": "https://github.com/Eyal-Shalev/wsdl2phpgenerator-command"
   },
   "require": {
-    "wsdl2phpgenerator/wsdl2phpgenerator": "<3.3",
-    "drupal/console": ">=0.9.10"
+    "wsdl2phpgenerator/wsdl2phpgenerator": "<3.3 || >3.3",
+    "symfony/console": ">2.0"
   },
   "autoload": {
-    "psr-4": {"Drupal\\wsdl2phpgenerator_command\\": "src"}
+    "psr-4": {"EyalShalev\\WsdlGenerator\\": "src"}
   }
 }
