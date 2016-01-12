@@ -1,0 +1,10 @@
+command:
+    generate:
+        wsdl:
+            description: 'Generate WSDL files'
+            arguments:
+                endpoint: 'Where is the WSDL enpoint?'
+                directory: 'In what directory do you want to place the WSDL files?'
+            options:
+                namespace: 'What namespace do you want the WSDL classes to use?'
+                remove_existing: 'Do you want to remove existing files?'

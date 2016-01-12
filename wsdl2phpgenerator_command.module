@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains wsdl2phpgenerator_command.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function wsdl2phpgenerator_command_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the wsdl2phpgenerator_command module.
+    case 'help.page.wsdl2phpgenerator_command':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A drupal-console command that generates class files for a given WSDL') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function wsdl2phpgenerator_command_theme() {
+  $theme = [];
+
+  return $theme;
+}
