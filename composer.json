@@ -21,6 +21,7 @@
     "wsdl2phpgenerator/wsdl2phpgenerator": "<3.3 || >3.3",
     "symfony/console": ">2.0"
   },
+  "bin": ["bin/wsdl"],
   "autoload": {
     "psr-4": {"EyalShalev\\WsdlGenerator\\": "src"}
   }

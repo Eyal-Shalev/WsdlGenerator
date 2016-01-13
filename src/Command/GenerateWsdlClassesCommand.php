@@ -7,11 +7,11 @@
 
 namespace EyalShalev\WsdlGenerator\Command;
 
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Drupal\Console\Command\Command;
 
 use Symfony\Component\Filesystem\Filesystem;
 use Wsdl2PhpGenerator\Config as WsdlConfig;
@@ -23,6 +23,7 @@ use Wsdl2PhpGenerator\Generator as WsdlGenerator;
  * @package EyalShalev\WsdlGenerator\Command
  */
 class GenerateWsdlClassesCommand extends Command {
+
   /**
    * {@inheritdoc}
    */
