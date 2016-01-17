@@ -18,8 +18,9 @@
     "source": "https://github.com/Eyal-Shalev/wsdl2phpgenerator-command"
   },
   "require": {
-    "wsdl2phpgenerator/wsdl2phpgenerator": "<3.3 || >3.3",
-    "symfony/console": ">2.0"
+    "wsdl2phpgenerator/wsdl2phpgenerator": "<3.3.0 || >3.3.0",
+    "symfony/console": ">2.0",
+    "symfony/filesystem": "^3.0"
   },
   "bin": ["bin/wsdl"],
   "autoload": {

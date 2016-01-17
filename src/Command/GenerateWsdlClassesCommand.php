@@ -7,13 +7,14 @@
 
 namespace EyalShalev\WsdlGenerator\Command;
 
+# Symfony
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-
 use Symfony\Component\Filesystem\Filesystem;
+# wsdl2phpgenerator
 use Wsdl2PhpGenerator\Config as WsdlConfig;
 use Wsdl2PhpGenerator\Generator as WsdlGenerator;
 
@@ -28,13 +29,14 @@ class GenerateWsdlClassesCommand extends Command {
    * {@inheritdoc}
    */
   protected function configure() {
+
     $this
-      ->setName('generate:wsdl')
-      ->setDescription($this->trans('command.generate.wsdl.description'))
-      ->addArgument('endpoint', InputArgument::REQUIRED, $this->trans('command.generate.wsdl.arguments.endpoint'))
-      ->addArgument('directory', InputArgument::OPTIONAL, $this->trans('command.generate.wsdl.arguments.directory'), './wsdl')
-      ->addOption('namespace', 's', InputOption::VALUE_OPTIONAL, $this->trans('command.generate.wsdl.options.namespace'), 'wsdl')
-      ->addOption('remove-existing', 'f', InputOption::VALUE_NONE, $this->trans('command.generate.wsdl.options.remove_existing'));
+      ->setName('generate')
+      ->setDescription('Generate WSDL classes')
+      ->addArgument('endpoint', InputArgument::REQUIRED, 'Where is the WSDL endpoint?')
+      ->addArgument('directory', InputArgument::OPTIONAL, 'In what directory do you want to place the WSDL files?', './wsdl')
+      ->addOption('namespace', 's', InputOption::VALUE_OPTIONAL, 'What namespace do you want the WSDL classes to use?', 'wsdl')
+      ->addOption('force', 'f', InputOption::VALUE_NONE, 'Do you want to remove existing files?');
   }
 
   /**
@@ -60,18 +62,21 @@ class GenerateWsdlClassesCommand extends Command {
       while ($fs->exists($tmp_directory)) {
         $tmp_directory .= '_' . $counter++;
       }
-      $output->writeln("Moving the existing directory to the temp directory ({$directory} -> {$tmp_directory}).");
+      $output->write('Moving the existing directory to the temp directory');
+      $output->write(" ({$directory} -> {$tmp_directory})", OutputInterface::VERBOSITY_VERBOSE);
       $fs->rename($directory, $tmp_directory);
     }
 
     if ($endpoint) {
       try {
-        $output->writeln("Building WSDL to the directory: {$directory}");
+        $output->write('Building WSDL to the directory');
+        $output->write(": {$directory}", OutputInterface::VERBOSITY_VERBOSE);
         $generator = new WsdlGenerator();
         $generator->generate(new WsdlConfig($generator_options));
         $output->writeln('WSDL has been built successfully');
         if ($remove_existing) {
-          $output->writeln("Removing the temp directory: {$tmp_directory}");
+          $output->write('Removing the temp directory');
+          $output->write(": {$tmp_directory}", OutputInterface::VERBOSITY_VERBOSE);
           $fs->remove($tmp_directory);
         }
       }
@@ -80,7 +85,8 @@ class GenerateWsdlClassesCommand extends Command {
         $output->writeln($output->getFormatter()->format("Error Code: {$e->getCode()}"));
         $output->writeln($output->getFormatter()->format("Error Message: {$e->getMessage()}"));
         if ($remove_existing) {
-          $output->writeln("Moving the temp directory back to the existing location ({$tmp_directory} -> {$directory})");
+          $output->write('Moving the temp directory back to the existing location');
+          $output->write(" ({$tmp_directory} -> {$directory})", OutputInterface::VERBOSITY_VERBOSE);
           $fs->rename($tmp_directory, $directory);
         }
       }

@@ -2,7 +2,7 @@
 <?php
 // application.php
 
-require __DIR__.'../../../autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use EyalShalev\WsdlGenerator\Command\GenerateWsdlClassesCommand;
 use Symfony\Component\Console\Application;
