@@ -11,6 +11,6 @@
     "source": "https://github.com/Eyal-Shalev/wsdl2phpgenerator-command"
   },
   "require": {
-    "wsdl2phpgenerator/wsdl2phpgenerator": ">=3.0"
+    "wsdl2phpgenerator/wsdl2phpgenerator": "<3.0.0 || >3.0.0"
   }
 }
