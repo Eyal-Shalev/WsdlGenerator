@@ -5,7 +5,7 @@
  * Contains \Drupal\wsdl2phpgenerator_command\Command\GenerateWsdlCommand.
  */
 
-namespace Drupal\wsdl2phpgenerator_command\Command;
+namespace Drupal\wsdl_generator\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
